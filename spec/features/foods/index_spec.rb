@@ -14,3 +14,24 @@
 # - The food's Brand Owner
 # - The food's ingredients
 
+require 'rails_helper'
+
+RSpec.describe '/foods' do
+  it "has information about foods from given food" do 
+    visit root_path
+
+    fill_in "q", with: "sweet potato"
+
+    click_button "Search"
+
+    expect(current_path).to eq("/foods")
+
+    expect(page).to have_content("Total Number of Results: ")
+
+    expect(page).to have_content("Gtin/UPC: 20042431")
+    expect(page).to have_content("Description: SWEET POTATO")
+    expect(page).to have_content("Brand Owner: Mindful Foods, Inc.")
+    expect(page).to have_content("Ingredients: SOOZY'S FLOUR BLEND")
+  end
+  
+end

@@ -1,0 +1,9 @@
+<h2>Total Number of Results: <%= @foods.count %>
+
+<% @foods.each_with_index do |food, index| %>
+  <% break if index >= 10 %>
+  <p>Gtin/UPC: <%= food.gtinUpc %></p>
+  <p>Description: <%= food.description %></p>
+  <p>Brand Owner: <%= food.brandOwner %></p>
+  <p>Ingredients: <%= food.ingredients %></p>
+<% end %>
