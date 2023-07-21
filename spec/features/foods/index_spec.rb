@@ -16,8 +16,10 @@
 
 require 'rails_helper'
 
+
 RSpec.describe '/foods' do
   it "has information about foods from given food" do 
+    
     visit root_path
 
     fill_in "q", with: "sweet potato"
